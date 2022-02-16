@@ -58,7 +58,7 @@ try {
     exit();
 }
 
-header('Location:note.html');
+header('Location:home.php');
 exit();
 
 ?>

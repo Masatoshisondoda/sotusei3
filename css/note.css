@@ -1,3 +1,21 @@
+.noteadd{
+    position: absolute;
+    left: 812px;
+    top:9px;
+    height: 28px;
+    width: 2px;
+    background:rgb(173, 248, 213);
+    padding:.4rem;
+    width:38px;
+    margin:auto;
+    border-radius: 8px;
+    color:black;
+    cursor: pointer;
+}
+.noteadd:hover{
+    background:rgb(17, 170, 17);
+}
+
 .btn{
     text-align: center;
     align-items:center;
@@ -15,15 +33,22 @@
     background:rgb(17, 170, 17);
 }
 
+
+
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 body {
-
+  height: 100%;
+  width: auto;
   background: rgb(255, 255, 255);
 }
+.note{
+
+}
+/*.paperで紙の大きさ調整*/
 .paper {
   position: absolute;
-  height: 799px;
-  width: 861px;
+  height: 90%;
+  width: 80%;
   background: rgba(255, 248, 228, 0.9);
   margin: -275px -225px;
   left: 28%;
@@ -43,14 +68,15 @@ body {
  
 }
 .lines {
-  margin-top: 40px;
-  height: calc(100% - 88px);
+  top:20px;
+  height: 100%;
   width: 100%;
   background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
     /* 10px四方の方眼紙 */
   background: linear-gradient(0deg, transparent 9px, #33333324 10px), linear-gradient(90deg,  transparent 9px, #33333324 10px);
   background-size: 10px 10px
 }
+/*.textで入力範囲変更*/
 .text {
   position: absolute;
   top: 65px;
@@ -82,4 +108,17 @@ body {
 }
 .cdx-block {
     padding: -4.6em 0;
+}
+
+#editor{
+  position: absolute;
+    height: 100%;
+    width: 150%;
+    overflow: scroll;
+    padding-bottom: 10px;
+}
+
+.editArea{
+    margin-left: -23%;
+  
 }

@@ -1,13 +1,13 @@
 <?php
-$name=filter_input(INPUT_POST,'name');
-
-$data=$_POST['data'];
+// データ受け取り
 include('functions.php');
+$id = $_GET['id'];
 $pdo = connect_to_db();
-$sql = 'UPDATE studyselfnote SET noteindex=:jsondata, updated_at=now() WHERE id=3';
+
+$sql = 'DELETE FROM studyselfnote WHERE id=:id';
 
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':jsondata', $name, PDO::PARAM_STR);
+$stmt->bindValue(':id', $id, PDO::PARAM_STR);
 
 try {
     $status = $stmt->execute();
@@ -16,6 +16,5 @@ try {
     exit();
 }
 
+header("Location:home.php");
 exit();
-
-?>
