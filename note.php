@@ -86,7 +86,6 @@ else{
     <div class=note>
 
         <div class="paper">
-            <button id="noteAdd" class="noteadd">+</button>
             <div class="lines">
                 <div class="text">
                     <!--<div class="text" contenteditable spellcheck="false">だった-->
@@ -282,11 +281,6 @@ else{
             }
 
 
-        });
-        //ノート追加
-        const addNote = document.getElementById('noteAdd');
-        addNote.addEventListener('click', () => {
-            console.log("aaa");
         });
 
 

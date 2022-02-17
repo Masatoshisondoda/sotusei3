@@ -14,21 +14,25 @@ try {
 }
 
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 $output = "";
+
 foreach ($result as $record) {
     $output .= "
-    <tr>
-      <td>{$record["notename"]}</td>
-      <td>{$record["usepurpose"]}</td>
-      <td>
+      <div class=notehome><img src=notehome.jpeg width=100px height=200px>
+      <p>{$record["notename"]}</p>
         <a href='note.php?id={$record["id"]}'>edit</a>
-      </td>
-      
-      <td>
       <a href='delete.php?id={$record["id"]}' onclick=hoge();>delete</a>
-      </td>
-    </tr>
+    </div>
   ";
+}
+
+$idname = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$idnamearray = "";
+foreach ($idname as $record) {
+    $idnamearray .= "
+    <tr>{$record['id']}</tr>
+    ";
 }
 
 
@@ -48,9 +52,19 @@ foreach ($result as $record) {
 </head>
 
 <body>
-    <header>
-
+    <header class="topNavigation">
+        <p>Studyself</p>
     </header>
+
+    <nav class="gnavi">
+        <div class="gnavi__inner">
+            <ul>
+                <li><a class=globalnavi href="#"><span>ホーム</span></a></li>
+                <li><a class=globalnavi href="#"><span>ノート作成</span></a></li>
+                <li><a class=globalnavi href="#"><span>問題集作成</span></a></li>
+            </ul>
+        </div>
+    </nav>
     <dialog>
         <form method="post" action="notestyle.php" class=dialog>
             <p class=dialog_title>新規ノート作成</p>
@@ -68,7 +82,7 @@ foreach ($result as $record) {
     </dialog>
     <button id="noteCreate" class="noteCreate">作成</button>
     <?= $output ?>
-
+    <?= $idnamearray ?>
     <dialog id=deleteDialog>
 
         <p id=deleteDialog></p>
